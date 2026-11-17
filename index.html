@@ -1302,12 +1302,11 @@
   function top5Html(e){
     if (e.parcial){
       return `<h3 class="ed-sub">Artilharia (parcial)</h3>
-        <ul class="top5">${e.parcial.map(a => linhaArtilheiro(a, '1º', a.gols)).join('')}</ul>
-        <p class="parcial-aviso">Número levantado antes da final. A artilharia completa ainda não foi levantada.</p>`;
+        <ul class="top5">${e.parcial.map(a => linhaArtilheiro(a, '1º', a.gols)).join('')}</ul>`;
     }
     if (!comDados(e)){
       return `<h3 class="ed-sub">Top 5 da artilharia</h3>
-        <div class="empty-state">${e.tipo ? 'Não há artilharia nesta edição.' : 'Artilharia ainda não levantada para esta edição.'}</div>`;
+        <div class="empty-state">${e.tipo ? 'Não há artilharia nesta edição.' : 'Sem registro de artilharia desta edição.'}</div>`;
     }
     const grupos = agrupar(e.art);
     const max = Math.max(...e.art.map(a => a.gols));
